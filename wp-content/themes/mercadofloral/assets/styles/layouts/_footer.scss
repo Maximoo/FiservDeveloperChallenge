@@ -1,0 +1,42 @@
+.mf-footer{
+	background: theme-color(footer);
+	color: color(light);
+	padding-top: 80px;
+	padding-bottom: 40px;
+	&__logo{
+		width: 100px;
+    	display: block;
+    	margin-bottom: $gutter2;
+	}
+	&__menu{
+		ul{
+			list-style: none;
+			padding: 0;
+		}
+		li{
+			margin-bottom: $gutter;
+		}
+		a{
+			color: color(light);
+		}
+	}
+	&__social{
+		text-align: center;
+		&__icon{
+			display: inline-block;
+			width: 35px;
+			height: 35px;
+			line-height: 35px;
+			border-radius: 100%;
+			background-color: color(light);
+			font-size: 1.2em;
+			margin-right: 5px;
+			&:last-child{
+				margin-right: 0;
+			}
+			&, & a{
+				color: theme-color(logo2);
+			}
+		}
+	}
+}

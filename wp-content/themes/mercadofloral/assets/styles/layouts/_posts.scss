@@ -1,0 +1,251 @@
+.mf-card{
+	background-color: color(light);
+	height: 100%;
+	&--yellow{
+		border-bottom: 6px solid color(yellow);
+	}
+	&--green{
+		border-bottom: 6px solid color(green);
+	}
+	&--blue{
+		border-bottom: 6px solid color(blue);
+	}
+	&__image{
+		@extend .img-fluid;
+		margin: auto;
+		display: block;
+	}
+	&__title{
+		color: theme-color(title);
+		max-height: 42px;
+	    text-align: center;
+	    padding: 0 15px;
+	    overflow: hidden;
+	    line-height: 1.3em;
+	    font-weight: 700;
+	    margin: 8px 0;
+	}
+	&__price{
+		text-align: center;
+		strong{
+			font-size: 1.2em;
+			@include font-weight(regular);
+		}
+		span{
+			@include font-weight(semibold);
+			font-size: 0.9em;
+		}
+		del{
+			@include font-weight(regular);
+			font-size: 0.9em;
+			color: theme-color(del);
+			margin-right: 10px;
+		}
+	}
+	&__stars{
+		margin-bottom: 5px;
+	}
+
+	$card-menu-bp: lg;
+
+	&--menu{
+		background-color: transparent;
+		@include media-breakpoint-up($card-menu-bp) {
+			background-color: color(light);
+		}
+	}
+
+	&__menu{
+		$menu: &;
+		@include media-breakpoint-up($card-menu-bp) {
+			padding: $gutter;
+		}
+		&__title{
+			display: block;
+			font-size: 1.7em;
+			line-height: 1em;
+			text-transform: uppercase;
+			@include font-weight(bold);
+			padding: 0;
+			@include media-breakpoint-up($card-menu-bp) {
+				font-size: 1.9em;
+				line-height: 1.1em;
+				padding: $gutter2 10% $gutter 0;
+				margin-bottom: $gutter;
+			}
+			#{$menu}--yellow &{
+				color: color(yellow);
+				@include media-breakpoint-up($card-menu-bp) {
+					border-bottom: 3px solid color(yellow);
+				}
+			}
+			#{$menu}--green &{
+				color: color(green);
+				@include media-breakpoint-up($card-menu-bp) {
+					border-bottom: 3px solid color(green);
+				}
+			}
+			#{$menu}--blue &{
+				color: color(blue);
+				@include media-breakpoint-up($card-menu-bp) {
+					border-bottom: 3px solid color(blue);
+				}
+			}
+		}
+		&__items{
+			nav{
+				display: none;
+				@include media-breakpoint-up($card-menu-bp) {
+					display: block;
+				}
+				ul{
+					list-style: none;
+					padding-left: 0;
+					li{
+						font-size: 1.1em;
+						margin: $gutter 0;
+					}
+				}
+			}
+		}
+	}
+}
+
+.mf-product{
+	&__title{
+		font-size: 1.7rem;
+		text-align: left;
+		@include font-weight(semibold);
+		margin-bottom: 5px;
+	}
+	&__stars{
+		text-align: left;
+		margin-bottom: $gutter;
+	}
+	&__price{
+		text-transform: uppercase;
+		margin-bottom: $gutter;
+		span{
+			font-size: 1.8rem;
+			@include font-weight(semibold);
+
+		}
+	}
+	p{
+		@include font-weight(bold);
+		color: theme-color(title);
+		margin-bottom: 5px;
+	}
+	&__schedule{
+		&__item{
+			text-transform: uppercase;
+			display: inline-block;
+			text-align: center;
+			@include font-weight(bold);
+			border-radius: 10px;
+			height: 80px;
+			line-height: 80px;	
+			width: 120px;
+			margin-right: 5px;
+			margin-bottom: 5px;
+			@include media-breakpoint-up(lg) {
+				width: 140px;
+				margin-right: 10px;
+				margin-bottom: 10px;
+				&--small{
+					width: 50px;
+				}
+			}
+			
+			background-color: color(mercury);
+			border: 2px solid transparent;
+			color: color(light);
+			transition: all 400ms ease;
+			cursor: pointer;
+			&:last-child{
+				margin-right: 0;
+			}
+			&:hover, &.checked{
+				border: 2px solid color(purple);
+				background-color: color(light);
+				color: color(purple);
+			}
+		}
+	}
+	&__actions{
+		display: flex;
+		justify-content: stretch;
+	}
+	&__action{
+		text-transform: uppercase;
+		text-align: center;
+		@include font-weight(bold);
+		border-radius: 10px;
+		height: 60px;
+		line-height: 60px;	
+		margin-right: 5px;
+		margin-bottom: 5px;
+		@include media-breakpoint-up(lg) {
+			height: 60px;
+			line-height: 60px;
+			width: 140px;
+			margin-right: 10px;
+			margin-bottom: 10px;
+		}
+		
+		
+		color: color(light);
+		transition: all 400ms ease;
+		cursor: pointer;
+		&:last-child{
+			margin-right: 0;
+		}
+
+		&--buy{
+			width: 200px;
+			background-color: theme-color(logo2);
+			&:hover{
+				background-color: darken(theme-color(logo2),8%);
+			}	
+		}
+		&--cart{
+			width: 100px;
+			
+			background-image: url(#{$image-path}bolsa.svg);
+			background-position: center;
+			background-repeat: no-repeat;
+			background-size: 30%;
+
+			position: relative;
+			&:after{
+				content: '+';
+				position: absolute;
+			    left: 50%;
+			    top: 50%;
+			    width: 20px;
+			    height: 20px;
+			    line-height: 20px;
+			    border-radius: 100%;
+			    text-align: center;
+			    font-size: 20px;
+			    transition: all 400ms ease;
+			    @include font-weight(bold);
+				color: color(light);
+				background-color: theme-color(badge);
+			}
+
+			background-color: theme-color(logo);
+			&:hover{
+				background-color: darken(theme-color(logo),8%);
+				&:after{
+					background-color: lighten(theme-color(badge),8%);
+				}
+			}	
+		}
+	}
+}
+
+
+.mf-product-description{
+
+}

@@ -1,0 +1,70 @@
+$gutter: $grid-gutter-width / 2;
+$gutter2: $grid-gutter-width;
+$gutter3: $grid-gutter-width * 1.5;
+$gutter4: $grid-gutter-width * 2;
+
+html, body{
+	@include font(opensans);
+	@include font-weight(regular);
+	color: theme-color(body-txt);
+	background-color: theme-color(body);
+	font-size: $font-size-root;
+	-webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
+
+body{
+	padding-top: $header-bar-height;
+	&.menu-open, &.search-open, &.cart-open{
+		overflow: hidden;
+		@include media-breakpoint-up($menu_bp) {
+			//overflow: auto;
+		}
+	}
+}
+
+button, a{
+	text-decoration: none;
+	&:focus, &:active, &:hover {
+	    outline: 0;
+	    text-decoration: none;
+	}
+}
+
+::placeholder {
+  	color: inherit;
+  	opacity: 0.3;
+	font-size: 0.8em;
+
+}
+:-ms-input-placeholder {
+	color: inherit;
+	opacity: 0.3;
+	font-size: 0.8em;
+}
+::-ms-input-placeholder {
+	color: inherit;
+	opacity: 0.3;
+	font-size: 0.8em;
+}
+
+@include font-classes();
+@include font-size-classes();
+@include color-classes();
+
+h1, h2, h3, h4{
+	@include font-weight(bold);
+}
+
+%modal{
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(color(dark),0.3);
+	opacity: 0;
+	visibility: hidden;
+	transition: all .4s ease;
+}

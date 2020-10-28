@@ -1,0 +1,196 @@
+@function map-get-warn( $list, $key ) {
+  @if map-has-key($list, $key) {
+    @return map-get($list, $key);
+  }
+  @warn "No se encontró: #{$key}";
+  @return false;
+}
+@function font( $font-name, $font-list: $fonts ) {
+  @return map-get-warn($font-list, $font-name);
+}
+@mixin font( $font-name, $important: false ){
+  $fallback: map-get($fonts-fallback, $font-name);
+  font-family: "#{font($font-name)}" #{if($fallback,', ' + $fallback,'')} #{if($important,'!important','')};
+}
+@function font-weight( $font-weight, $font-weight-list: $font-weights ) {
+  @return map-get-warn($font-weight-list, $font-weight);
+}
+@mixin font-weight( $font-weight, $important: false ){
+  font-weight: font-weight($font-weight) #{if($important,'!important','')};
+}
+@mixin font-classes(){
+  @each $font in map-keys($fonts) {
+    .font--#{$font}{
+      @include font($font,true);
+    }
+  }
+  @each $font-weight in map-keys($font-weights) {
+    .font-weight--#{$font-weight}{
+      @include font-weight($font-weight,true);
+    }
+  }
+}
+@function rem($size, $size-root: $font-size-root) {
+  @return #{$size / $font-size-root}rem;
+}
+@mixin font-size($size, $size-root: $font-size-root) {
+  font-size: $size;
+  font-size: rem($size, $size-root);
+}
+@mixin font-size-classes(){
+  @for $i from 1 through 10 {
+    .font-size--#{$i}{
+      font-size: #{1 + $i/10}em;
+    }
+  }
+}
+@function z( $level, $plus: 0 ) {
+  @return map-get-warn($z-indices, $level) + $plus;
+}
+@mixin z-index( $level, $plus: 0 ) {
+  z-index: z( $level, $plus );
+}
+@function gutter($breakpoint: xs, $gutters: $grid-gutter-widths) {
+  @return map-get($gutters, $breakpoint) / 2;
+}
+@mixin gutter-space($position: bottom, $prop: margin, $factor: 2, $gutters: $grid-gutter-widths) {
+  @each $breakpoint in map-keys($gutters) {
+    @include media-breakpoint-up($breakpoint) {
+      #{$prop}-#{$position}: (map-get($gutters, $breakpoint) / $factor);
+    }
+  }
+}
+@mixin gutter-margin() {
+  @include gutter-space(left,margin);
+  @include gutter-space(right,margin);
+}
+@mixin gutter-padding() {
+  @include gutter-space(left,padding);
+  @include gutter-space(right,padding);
+}
+@mixin gutter-item($prop: margin, $gutters: $grid-gutter-widths) {
+  @each $breakpoint in map-keys($gutters) {
+    @include media-breakpoint-up($breakpoint) {
+      $gutter: map-get($gutters, $breakpoint) / 2;
+      #{$prop}-top: $gutter;
+      #{$prop}-right: $gutter;
+      #{$prop}-bottom: $gutter;
+      #{$prop}-left: $gutter;
+    }
+  }
+}
+@mixin make-container-max-widths-factor($factor:1, $offset:0, $max-widths: $container-max-widths, $breakpoints: $grid-breakpoints) {
+  $max-widths-factor: ();
+  @each $bp, $size in $max-widths {
+    $max-widths-factor: map-merge($max-widths-factor, ($bp:$size*$factor+$offset));
+  }
+  @include make-container-max-widths($max-widths-factor, $breakpoints);
+}
+@function bp-down($bp, $breakpoints: $grid-breakpoints) {
+  $before: $bp;
+  @each $key, $val in $breakpoints {
+    @if($key == $bp){
+      @return $before;
+    }
+    $before: $key;
+  }
+  @return $before;
+}
+
+@mixin img-hover-zoom( $parent: & ){
+  overflow: hidden;
+  img{
+    transform: scale(1);
+    transition: transform 200ms ease-out;
+  }
+  @if($parent == &){
+    &:hover img{
+      transform: scale(1.1);
+    }
+  } @else {
+    #{$parent}:hover & img{
+      transform: scale(1.1);
+    }
+  }
+}
+
+@mixin color-classes(){
+  @each $color in map-keys($brand-colors) {
+    .color--#{$color}{
+      color: color($color);
+    }
+  }
+}
+
+//Use only in variables.scss, Bootstrap override this lines after load.
+@function color($key: "blue") {
+  @return map-get-warn($colors, $key);
+}
+@function theme-color($key: "primary") {
+  @return map-get-warn($theme-colors, $key);
+}
+@function gray($key: "100") {
+  @return map-get-warn($grays, $key);
+}
+
+@mixin hamburguer( $breakpoint, $color, $line-width: 24px, $separation: 6px ){
+  width: 44px;
+  height: 44px;
+  overflow: hidden;
+  white-space: nowrap;
+  @include media-breakpoint-up( $breakpoint ) {
+    display: none;
+  }
+  span, span::before, span::after {
+    position: absolute;
+    display: inline-block;
+    height: 3px;
+    width: $line-width;
+    background: $color;
+  }
+  span {
+    /* line in the center */
+    position: absolute;
+    top: 50%;
+    left: (44px - $line-width) / 2;
+    margin-top: -2px;
+    transition: all 200ms;
+  }
+  span::before, span::after {
+    /* other 2 lines */
+    content: '';
+    left: 0;
+    /* Force Hardware Acceleration in WebKit */
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    transform-origin: 0% 50%;
+    transition: all 200ms;
+    transform-origin: 50%;
+  }
+  span::before {
+    /* menu icon top line */
+    top: -$separation;
+  }
+  span::after {
+    /* menu icon bottom line */
+    top: $separation;
+  }
+  .nav-open &{
+    span {
+      /* hide line in the center */
+      background: rgba($color, 0);
+    }
+    span::before, span::after {
+      /* keep visible other 2 lines */
+      background: fade($color, 100%);
+      top: 0;
+      width: $line-width - 3px;
+    }
+    span::before {
+      transform: rotate(-45deg);
+    }
+    span::after {
+      transform: rotate(45deg);
+    }
+  }
+}

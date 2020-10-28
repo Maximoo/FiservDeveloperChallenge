@@ -1,0 +1,138 @@
+[
+    {
+        "name": "cmb2/cmb2",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/CMB2/CMB2.git",
+            "reference": "da5a64053a915cf945c34f2e3fa71bbcc6d2be10"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/CMB2/CMB2/zipball/da5a64053a915cf945c34f2e3fa71bbcc6d2be10",
+            "reference": "da5a64053a915cf945c34f2e3fa71bbcc6d2be10",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">5.2.4"
+        },
+        "require-dev": {
+            "apigen/apigen": "4.1.2",
+            "nette/utils": "2.5.3",
+            "phpunit/phpunit": "6.5.13"
+        },
+        "suggest": {
+            "composer/installers": "~1.0"
+        },
+        "time": "2020-08-03T14:43:02+00:00",
+        "type": "wordpress-plugin",
+        "installation-source": "source",
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "GPL-2.0-or-later"
+        ],
+        "authors": [
+            {
+                "name": "Justin Sternberg",
+                "email": "justin@dsgnwrks.pro",
+                "homepage": "https://dsgnwrks.pro",
+                "role": "Developer"
+            },
+            {
+                "name": "WebDevStudios",
+                "email": "contact@webdevstudios.com",
+                "homepage": "https://github.com/WebDevStudios",
+                "role": "Developer"
+            }
+        ],
+        "description": "CMB2 is a metabox, custom fields, and forms library for WordPress that will blow your mind.",
+        "homepage": "https://github.com/CMB2/CMB2",
+        "keywords": [
+            "metabox",
+            "plugin",
+            "wordpress"
+        ]
+    },
+    {
+        "name": "webdevstudios/cpt-core",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/WebDevStudios/CPT_Core.git",
+            "reference": "8f878f1bfe52f0c3965fa1ee7fd3e62e82c91de5"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/WebDevStudios/CPT_Core/zipball/8f878f1bfe52f0c3965fa1ee7fd3e62e82c91de5",
+            "reference": "8f878f1bfe52f0c3965fa1ee7fd3e62e82c91de5",
+            "shasum": ""
+        },
+        "suggest": {
+            "composer/installers": "~1.0"
+        },
+        "time": "2018-04-17T20:17:24+00:00",
+        "type": "wordpress-plugin",
+        "installation-source": "source",
+        "autoload": {
+            "files": [
+                "CPT_Core.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "GPLv2"
+        ],
+        "authors": [
+            {
+                "name": "WebDevStudios",
+                "email": "contact@webdevstudios.com",
+                "homepage": "https://github.com/WebDevStudios",
+                "role": "Developer"
+            }
+        ],
+        "description": "WordPress Custom Post Type OO wrapper",
+        "homepage": "https://github.com/WebDevStudios/CPT_Core",
+        "keywords": [
+            "metabox",
+            "plugin",
+            "wordpress"
+        ]
+    },
+    {
+        "name": "webdevstudios/taxonomy_core",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/WebDevStudios/Taxonomy_Core.git",
+            "reference": "eaf5551361367bbf22f91b7e3d01d7be392ce4ee"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/WebDevStudios/Taxonomy_Core/zipball/eaf5551361367bbf22f91b7e3d01d7be392ce4ee",
+            "reference": "eaf5551361367bbf22f91b7e3d01d7be392ce4ee",
+            "shasum": ""
+        },
+        "time": "2018-04-17T20:17:34+00:00",
+        "type": "library",
+        "installation-source": "source",
+        "autoload": {
+            "files": [
+                "Taxonomy_Core.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "GPLv2"
+        ],
+        "authors": [
+            {
+                "name": "WebDevStudios",
+                "email": "contact@webdevstudios.com"
+            }
+        ],
+        "description": "A tool to make custom taxonomy registration just a bit simpler. Automatically registers taxonomy labels, and provides helpful methods."
+    }
+]

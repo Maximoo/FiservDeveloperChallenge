@@ -1,0 +1,24 @@
+{
+	"name": "mfcommerce",
+	"description": "E-Commerce for Mercado Floral",
+	"keywords": ["wordpress", "plugin", "generator-plugin-wp"],
+	"homepage": "https://mercadofloral.com",
+	"license": "Private",
+	"authors": [
+	{
+		"name": "Ricardo Máximo",
+		"homepage": "https://mercadofloral.com"
+	}
+	],
+	"minimum-stability": "dev",
+	"type": "wordpress-plugin",
+	"autoload": {
+		"classmap": ["mfcommerce.php", "includes/"],
+		"files": ["vendor/cmb2/cmb2/init.php"]
+	},
+	"require": {
+		"webdevstudios/cpt-core": "dev-master",
+		"webdevstudios/taxonomy_core": "dev-master",
+		"cmb2/cmb2": "dev-master"
+	}
+}

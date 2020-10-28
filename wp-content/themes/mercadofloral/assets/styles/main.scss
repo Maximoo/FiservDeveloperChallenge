@@ -1,0 +1,27 @@
+@import "common/functions";
+@import "common/variables";
+@import "common/fonts";
+
+// Automatically injected Bower dependencies via wiredep (never manually edit this block)
+// bower:scss
+@import "../../bower_components/bootstrap/scss/bootstrap.scss";
+@import "../../bower_components/font-awesome-5/scss/solid.scss";
+@import "../../bower_components/font-awesome-5/scss/regular.scss";
+@import "../../bower_components/font-awesome-5/scss/brands.scss";
+@import "../../bower_components/font-awesome-5/scss/fontawesome.scss";
+@import "../../bower_components/css-hamburgers/_sass/hamburgers/hamburgers.scss";
+// endbower
+
+@import "common/global";
+@import "components/buttons";
+@import "components/comments";
+@import "components/forms";
+@import "components/grid";
+@import "components/widgets";
+@import "components/wp-classes";
+@import "layouts/header";
+@import "layouts/sidebar";
+@import "layouts/footer";
+@import "layouts/pages";
+@import "layouts/posts";
+@import "layouts/tinymce";

@@ -1,0 +1,139 @@
+
+$font-path: 		"../fonts/";
+$image-path:		"../images/";
+$fa-font-path: 		$font-path;
+
+$font-size-root: 	16px;
+
+$fonts:(
+	//amino: 		'Amino',
+	opensans: 		'Open Sans'
+);
+
+$font-serif:    	'Sans-Serif, serif';
+
+$fonts-fallback:(
+	//amino: 		$font-serif,
+	opensans: 		$font-serif
+);
+
+$font-weights:(
+	regular: 		400,
+	semibold: 		600,
+	bold: 			700,
+	extrabold: 		800
+);		
+
+$brand-colors:(
+	//Blue
+	blue:    			#4576f2,
+	indigo:  			#6610f2,
+	purple:  			#6c28ad,
+
+	//Red
+	pink:    			#e800ba,
+	red:     			#dc3545,
+
+	//Yellow
+	orange:  			#fd7e14,
+	yellow:  			#f9c100,
+	lemon: 				#f7d616,
+
+	//Green
+	green:   			#81c866,
+	teal:    			#20c997,
+	cyan:    			#17a2b8,
+
+	//Gray
+	gray: 				#7c7c7c,
+	light-gray: 		#f9f9f9,
+	dusty-gray: 		#9a9a9a,
+	mercury: 			#e3e3e3,
+	dark:				#2d2d2d,
+	light: 				#ffffff
+);
+$alt-colors:(
+	facebook:			#3b5998,
+	twitter:			#55acee,
+	whatsapp:			#43d854,
+	googleplus:			#dc4e41,
+	google:				#ea4335,
+	instagram:			#3f729b,
+	spotify:			#2ebd59,
+	wordpress:			#21759b,
+	youtube:			#cd201f
+);
+
+$colors: map-merge($brand-colors,$alt-colors);
+
+$theme-colors:(
+	logo: 				color(purple),
+	logo2: 				color(pink),
+
+	title: 				color(purple),
+	subtitle: 			color(pink),
+	link:				color(dark),
+	border: 			color(gray),
+	
+	top-bar: 			color(purple),
+	menu-bar: 			color(pink),
+
+	menu-txt: 			color(dark),
+	body: 				color(light-gray),
+	body-txt: 			color(dark),
+	footer: 			color(purple),
+
+	stars: 				color(lemon),
+	badge: 				color(pink),
+	del: 				color(dusty-gray),
+
+	button: 			color(dark),
+	button-txt: 		color(dark),
+
+	primary: 			color(dark),
+	secondary: 			color(dark),
+	info: 				color(dark),
+	danger: 			color(dark)
+);
+
+$link-color: 	theme-color(link);
+$blue:    		color(blue);
+$indigo:  		color(indigo);
+$purple:  		color(purple);
+$pink:    		color(pink);
+$red:     		color(red);
+$orange:  		color(orange);
+$yellow:  		color(yellow);
+$green:   		color(green);
+$teal:    		color(teal);
+$cyan:    		color(cyan);
+
+$z-indices:(
+	z0: 			0,
+	z1: 			10,
+	z2: 			20,
+	z3: 			30,
+	z4: 			40,
+	z5: 			50,
+	focusmodal: 	100,
+	menu:         	110,
+	header: 		120,
+	cartmodal: 		130,
+	cart: 			140,
+	modal: 			150,
+	loader: 		160
+);
+
+$hamburger-padding-x           : 10px;
+$hamburger-padding-y           : 10px;
+$hamburger-layer-width         : 22px;
+$hamburger-layer-height        : 2px;
+$hamburger-layer-spacing       : 4px;
+$hamburger-layer-color         : color(light);
+$hamburger-hover-opacity       : 1;
+
+$menu_bp: 'md';
+
+$header-bar-height: 60px;
+$header-menu-height: 40px;
+

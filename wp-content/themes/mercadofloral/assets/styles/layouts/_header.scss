@@ -1,0 +1,238 @@
+.mf-focusmodal{
+	@extend %modal;
+	z-index: z(focusmodal);
+	.search-open &, .menu-open &{
+		visibility: visible;
+		opacity: 1;
+	}
+	@include media-breakpoint-up($menu_bp) {
+		.search-open &, .menu-open &{
+			opacity: 0;
+			visibility: hidden;
+		}	
+	}
+}
+
+.mf-cartmodal{
+	@extend %modal;
+	z-index: z(cartmodal);
+	.cart-open &{
+		visibility: visible;
+		opacity: 1;
+	}
+}
+
+.mf-header{
+	&__top{
+		position: fixed;
+		height: $header-bar-height;
+		width: 100%;
+		top: 0;
+		left: 0;
+		background-color: theme-color(top-bar);
+		z-index: z(header);
+		.container{
+			padding: 0;
+			height: 100%;
+			@extend .d-flex;
+		}
+		&__trigger{
+			@extend .flex-shrink-0;
+			padding: $hamburger-padding-y+1 $hamburger-padding-x $hamburger-padding-y $hamburger-padding-x;
+			@include media-breakpoint-up($menu_bp) {
+				display: none;
+			}
+		}
+		&__brand{
+			background-repeat: no-repeat;
+			background-position: center;
+		    overflow: hidden;
+		    text-indent: -999px;
+		    outline: 0;
+			height: 100%;
+			width: 50px;
+			background-size: 60%;
+    		background-image: url(#{$image-path}mercado-floral-logo.svg);
+    		@include media-breakpoint-up($menu_bp) {
+    			width: 240px;
+    			background-size: 100%;
+				background-image: url(#{$image-path}mercado-floral.svg);
+				margin-right: 10px;
+			}
+		}
+		&__search{
+			$h: 36px;
+			$pt: ($header-bar-height - $h) / 2;
+			@extend .flex-grow-1;
+			height: 100%;
+			padding: 0 5px 0 8px;
+			@include media-breakpoint-up($menu_bp) {
+				padding: 0 $gutter;
+			}
+			&__inner{
+				max-width: 650px;
+			    margin: auto;
+			    position: relative;
+			    padding: $pt 0;
+			    height: $header-bar-height;
+			    z-index: z(header,1);
+			    .search-open &{
+			    	max-width: 100%;
+			    	position: fixed;
+					left: 0;
+					top: 0;
+					width: 100%;
+					background-color: color(light);
+					@include media-breakpoint-up($menu_bp) {
+						max-width: 650px;
+						position: relative;
+						left: initial;
+						top: initial;
+						background-color: transparent;
+					}
+			    }
+			}
+			input{
+				height: $h;
+				width: 100%;
+				border: none;
+				display: block;
+			    border-radius: 5px;
+				outline: none;
+				padding: 0 40px 0 $gutter;
+				@include media-breakpoint-up($menu_bp) {
+					
+				}
+			}
+			button{
+				background: transparent;
+				border: none;
+				color: theme-color(menu-bar);
+				display: block;
+				width: 45px;
+				height: 100%;
+				position: absolute;
+				top: 0;
+				right: 0;
+				padding: 0;
+				margin: 0;
+			}
+		}
+		&__text{
+			display: none;
+			@include media-breakpoint-up(lg) {
+				line-height: $header-bar-height;
+				color: color(light);
+				display: block;
+				font-size: 1.1em;
+				@include font-weight(bold);
+			}
+		}
+		&__icon{
+			@extend .flex-shrink-0;
+			display: flex;
+    		align-items: center;
+    		justify-content: center;
+    		height: 100%;
+    		width: 40px;
+			margin-right: 5px;
+			color: color(light);
+			&:last-child{
+				margin-right: 0;
+			}
+			@include media-breakpoint-up($menu_bp) {
+				width: 50px;
+				margin-right: ($gutter);
+			}
+			&--bolsa{
+				background-image: url(#{$image-path}bolsa.svg);
+				background-position: center;
+				background-repeat: no-repeat;
+				background-size: 50%;
+				@include media-breakpoint-up($menu_bp) {
+					background-size: 40%;
+				}
+			}
+
+		}
+
+		@include media-breakpoint-up($menu_bp) {
+			.container{
+				padding: 0 ($gutter);
+			}
+		}
+	}
+	&__bottom{
+		position: fixed;
+		left: -100%;
+		width: 100%;
+		background-color: color(light);
+		transition: left 200ms ease-out;
+		border-bottom: 5px solid theme-color(menu-bar);
+		overflow: hidden;
+		z-index: z(menu);
+		.menu-open &{
+			left: 0;
+		}		
+		@include media-breakpoint-up($menu_bp) {
+			position: relative;
+			left: 0;
+			background-color: theme-color(menu-bar);
+			color: color(light);
+			a{ color: inherit; }
+			border-bottom: 0;
+			transition: none;
+			height: $header-menu-height;
+		}
+		&__nav{
+			.nav{
+				padding: 15px 0;
+			}
+			.menu-item{
+				height: 50px;
+				line-height: 50px;
+				position: relative;
+				display: block;
+				width: 100%;
+				font-size: 1.2em;
+				margin-bottom: 10px;
+				&:last-child{
+					margin-bottom: 0;
+				}
+			}
+			@include media-breakpoint-up($menu_bp) {
+				.nav{
+					justify-content: center;
+					height: 100%;
+					padding: 0;
+				}
+				.menu-item{
+					height: $header-menu-height;
+					line-height: $header-menu-height;
+					display: list-item;
+					width: initial;
+					font-size: 1em;
+					margin-bottom: 0;
+					margin-right: $gutter2;
+					&:last-child{
+						margin-right: 0;
+					}
+					&:after{
+						display: none;
+					}
+				}
+			}
+		}
+	}
+}
+
+.page-header{
+	padding: $gutter2 0;
+	h1{
+		font-size: 30px;
+		@include font-weight(regular);
+		span{
+			@include font-weight(bold);
+		}
+	}
+}

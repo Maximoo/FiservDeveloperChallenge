@@ -1,0 +1,31 @@
+{
+  "name": "sage",
+  "homepage": "https://roots.io/sage/",
+  "authors": [
+    "Ben Word <ben@benword.com>"
+  ],
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "bootstrap": "^4.0.0",
+    "font-awesome-5": "^5.15.1",
+    "css-hamburgers": "^1.1.3"
+  },
+  "overrides": {
+    "bootstrap": {
+      "main": [
+        "./scss/bootstrap.scss",
+        "./dist/js/bootstrap.bundle.js"
+      ]
+    },
+    "font-awesome-5": {
+      "main": [
+        "./webfonts/*",
+        "./scss/solid.scss",
+        "./scss/regular.scss",
+        "./scss/brands.scss",
+        "./scss/fontawesome.scss"
+      ]
+    }
+  }
+}
